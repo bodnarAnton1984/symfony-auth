@@ -12,7 +12,7 @@ services:
     build: php
     image: php:7.2-fpm
     environment:
-    - DEVELOPER_HOST=80.10.0.1
+    - DEVELOPER_HOST=70.10.0.1
     - DEVELOPER_PORT=9000
     volumes:
     - ../:/var/www
@@ -23,7 +23,7 @@ services:
     - redis
     networks:
       jollyTeamProject:
-        ipv4_address: 80.10.0.102
+        ipv4_address: 70.10.0.102
 
   nginx:
     build: nginx
@@ -33,7 +33,7 @@ services:
     - php:fpm
     networks:
       jollyTeamProject:
-        ipv4_address: 80.10.0.101
+        ipv4_address: 70.10.0.101
     ports:
     - "7010:80"
     volumes:
@@ -50,7 +50,7 @@ services:
       POSTGRES_PASSWORD: 'password'
     networks:
       jollyTeamProject:
-        ipv4_address: 80.10.0.103
+        ipv4_address: 70.10.0.103
     ports:
     - '6060:5432'
 
@@ -63,20 +63,20 @@ services:
     - postgres
     networks:
       jollyTeamProject:
-        ipv4_address: 80.10.0.106
+        ipv4_address: 70.10.0.106
 
   redis:
     image: redis:3.2.11
     networks:
       jollyTeamProject:
-        ipv4_address: 80.10.0.104
+        ipv4_address: 70.10.0.104
 
 networks:
   jollyTeamProject:
     driver: bridge
     ipam:
       config:
-      - subnet: 80.10.0.0/24
+      - subnet: 70.10.0.0/24
 
 volumes:
   code:
