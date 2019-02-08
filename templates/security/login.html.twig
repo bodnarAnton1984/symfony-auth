@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Log in!{% endblock %}
+
+{% block body %}
+
+    {% if error %}
+        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+    <h1>Register</h1>
+
+    {{ form_start(loginForm) }}
+
+    {{ form_row(loginForm.email, {'full_name': 'email'}) }}
+    {{ form_row(loginForm.password, {'full_name': 'password'}) }}
+
+    <input type="hidden" name="_csrf_token"
+    value="{{ csrf_token('authenticate') }}"
+    >
+    <button class="btn">Sign in</button>
+
+    {{ form_end(loginForm) }}
+
+{% endblock %}
